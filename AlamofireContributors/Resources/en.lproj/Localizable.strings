@@ -1,0 +1,11 @@
+/* 
+  Localization.strings
+  AlamofireContributers
+
+  Created by ashy on 2/27/18.
+  Copyright © 2018 ashy. All rights reserved.
+*/
+
+"ErrorEmpty" = "Data is empty";
+"ErrorParse" = "Error in parsing the response data";
+"ErrorUnknown" = "Unknown error";

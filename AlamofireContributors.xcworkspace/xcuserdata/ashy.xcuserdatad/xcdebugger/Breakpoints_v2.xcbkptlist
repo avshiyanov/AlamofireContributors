@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AlamofireContributorsTests/AlamofireContributersTests.swift"
+            timestampString = "541458577.919594"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "testErrorState()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (AlamofireContributors.Result&lt;Swift.Array&lt;AlamofireContributors.Contributor&gt;&gt;) -&gt; () in AlamofireContributorsTests.AlamofireContributersTests.testErrorState() -&gt; ()"
+                  moduleName = "AlamofireContributorsTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ashy/Desktop/AlamofireContributers/AlamofireContributorsTests/AlamofireContributersTests.swift"
+                  timestampString = "541457964.515709"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #1 : @autoclosure () throws -&gt; Swift.Bool in closure #1 (AlamofireContributors.Result&lt;Swift.Array&lt;AlamofireContributors.Contributor&gt;&gt;) -&gt; () in AlamofireContributorsTests.AlamofireContributersTests.testErrorState() -&gt; ()"
+                  moduleName = "AlamofireContributorsTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ashy/Desktop/AlamofireContributers/AlamofireContributorsTests/AlamofireContributersTests.swift"
+                  timestampString = "541457964.51817"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AlamofireContributorsTests/AlamofireContributersTests.swift"
+            timestampString = "541458577.920009"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "testErrorState()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
