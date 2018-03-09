@@ -24,16 +24,19 @@ public enum ResponseError: Error {
 }
 
 protocol AlamofireContributorsAPI {
-    func fetchContributors(completion: @escaping ((Result<[Contributor]>) -> Void))
+    func fetchContributors(page:Int, completion: @escaping ((Result<[Contributor]>) -> Void))
     func fetchContributorDetails(login: String, completion: @escaping ((Result<ContributorDetails>) -> Void))
 }
 
 public struct NetworkService: AlamofireContributorsAPI {
-    private let kAlamofireContributersPath    = "/repos/Alamofire/Alamofire/contributors"
+    private let kAlamofireContributersPath    = "/repos/Alamofire/Alamofire/contributors?per_page=30&page={page}"
     private let kAlamofireContributerPath     = "/users/{login}"
     
-    func fetchContributors(completion: @escaping ((Result<[Contributor]>) -> Void)) {
-        let request = NetworkRequest(path: kAlamofireContributersPath, method: .get)
+    
+    func fetchContributors(page:Int, completion: @escaping ((Result<[Contributor]>) -> Void)) {
+        var path = kAlamofireContributersPath
+        path = path.replacingOccurrences(of: "{page}", with: String(page))
+        let request = NetworkRequest(path: path, method: .get)
         request.makeRequest() { response in
             completion(response.parseArray())
         }

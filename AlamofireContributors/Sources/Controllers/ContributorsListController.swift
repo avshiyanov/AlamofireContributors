@@ -11,17 +11,15 @@ import UIKit
 class ContributorsListController: UITableViewController {
     // MARK: Properties
     private var spinner: UIActivityIndicatorView!
+    var currentPage: Int = 1
+    var requestIsExecuted = false
     var networkService: AlamofireContributorsAPI = {
         return NetworkService()
     }()
     var alertInterupter: AlertViewInterupter = {
         return AlertViewInterupter()
     }()
-    var contributors: [Contributor]? {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    var contributors: [Contributor] = [Contributor]()
     
     // MARK: Life cycle
     
@@ -36,7 +34,7 @@ class ContributorsListController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let detailsViewController = segue.destination as? ContributorDetailsViewController,
             let indexPath = tableView.indexPathForSelectedRow {
-            detailsViewController.contributor = contributors?[indexPath.row]
+            detailsViewController.contributor = contributors[indexPath.row]
         }
     }
     
@@ -51,36 +49,58 @@ class ContributorsListController: UITableViewController {
     
     func requestData() {
         spinner.startAnimating()
-        networkService.fetchContributors { [weak self] (result) in
+        requestIsExecuted = true
+        networkService.fetchContributors(page: currentPage) {  [weak self] (result) in
             guard let `self` = self else { return }
             self.spinner.stopAnimating()
+            self.requestIsExecuted = false
             switch (result) {
             case .success(let contributors):
-                self.contributors = contributors
+                self.addContributors(contributors)
             case .failure(let error):
                 self.alertInterupter.presentAlert(with: error, presenter: self)
             }
         }
     }
     
+    func addContributors(_ contributors:[Contributor]) {
+        if self.contributors.isEmpty {
+            self.contributors = contributors
+        } else {
+            self.contributors.append(contentsOf: contributors)
+        }
+        self.tableView.reloadData()
+    }
+    
+    func refreshData() {
+        currentPage = 1
+        contributors = []
+        refreshData()
+    }
+    
+    func loadMore() {
+        if requestIsExecuted { return }
+        currentPage += 1
+        requestData()
+    }
+    
     // MARK: UITableView DataSource
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let contributors = self.contributors else {
-            return 0
-        }
         return contributors.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let contributors = self.contributors else {
-            return UITableViewCell()
-        }
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ContributorTableViewCell.self), for: indexPath) as! ContributorTableViewCell
         cell.update(with: contributors[indexPath.row])
         
         return cell
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if self.tableView.isNearTheBottomEdge(scrollView.contentOffset) {
+            loadMore()
+        }
     }
 
 }

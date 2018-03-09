@@ -12,7 +12,7 @@ struct ContributorDetails: Decodable {
     let name: String
     let company: String?
     let bio: String?
-    let location: String
+    let location: String?
     let avatarURL: URL
     
     private enum CodingKeys: String, CodingKey {

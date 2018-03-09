@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		45D5B3AF37E4F457272B4BB9 /* Pods_AlamofireContributors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DD52D1573F0C9DBDADC536B /* Pods_AlamofireContributors.framework */; };
+		52E6D78120530D33005488F1 /* UITableView+Bottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E6D78020530D33005488F1 /* UITableView+Bottom.swift */; };
 		52FF2393204498780013C305 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FF2392204498780013C305 /* AppDelegate.swift */; };
 		52FF2395204498780013C305 /* ContributorsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FF2394204498780013C305 /* ContributorsListController.swift */; };
 		52FF2398204498780013C305 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52FF2396204498780013C305 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		041F5B6C02C914617817CE28 /* Pods-AlamofireContributers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireContributers.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlamofireContributers/Pods-AlamofireContributers.release.xcconfig"; sourceTree = "<group>"; };
 		3E46F409200A2D363F769E9D /* Pods-AlamofireContributers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireContributers.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlamofireContributers/Pods-AlamofireContributers.debug.xcconfig"; sourceTree = "<group>"; };
+		52E6D78020530D33005488F1 /* UITableView+Bottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Bottom.swift"; sourceTree = "<group>"; };
 		52FF238F204498780013C305 /* AlamofireContributors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlamofireContributors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FF2392204498780013C305 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52FF2394204498780013C305 /* ContributorsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributorsListController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				52FF23E12045878C0013C305 /* DataResponse+Parse.swift */,
+				52E6D78020530D33005488F1 /* UITableView+Bottom.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				52FF23D02044A13F0013C305 /* NetworkProtocol.swift in Sources */,
 				52FF2393204498780013C305 /* AppDelegate.swift in Sources */,
 				52FF23D62045465D0013C305 /* ContributorTableViewCell.swift in Sources */,
+				52E6D78120530D33005488F1 /* UITableView+Bottom.swift in Sources */,
 				52FF23E22045878C0013C305 /* DataResponse+Parse.swift in Sources */,
 				52FF23ED204595460013C305 /* ContributorDetails.swift in Sources */,
 				52FF23CE2044A11C0013C305 /* NetworkRequest.swift in Sources */,
