@@ -97,7 +97,7 @@ class ContributorsListController: UITableViewController {
         return cell
     }
     
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if self.tableView.isNearTheBottomEdge(scrollView.contentOffset) {
             loadMore()
         }
