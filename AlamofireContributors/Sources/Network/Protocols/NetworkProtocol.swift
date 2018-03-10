@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 
 public protocol NetworkProtocol {
+    var sharedHeaders: HTTPHeaders { get }
     func makeRequest(completion: @escaping ((Alamofire.DataResponse<Any>) -> Void))
 }
 

@@ -17,21 +17,26 @@ public enum Result<T> {
 public struct NetworkRequest: NetworkProtocol {
     let path: String
     let method: HTTPMethod
-    let parameters: [String : AnyObject]?
+    let parameters: Parameters?
     
     private enum Constants {
         static let baseURL = "https://api.github.com"
+        static let token = "aee0611d02b88f552de3f8294a5a7fc3f5791c3f"
     }
     
-    public init(path: String, method: HTTPMethod, parameters: [String : AnyObject]? = nil) {
+    public var sharedHeaders: HTTPHeaders {
+        return ["Authorization": "token " + Constants.token]
+    }
+    
+    public init(path: String, method: HTTPMethod, parameters: Parameters? = nil) {
         self.method = method
         self.parameters = parameters
         self.path = path
     }
     
     public func makeRequest(completion: @escaping ((Alamofire.DataResponse<Any>) -> Void)) {
-        Alamofire.request(Constants.baseURL + path, method: method, parameters: parameters)
-            .validate().responseJSON { (response) in
+    
+        Alamofire.request(Constants.baseURL + path, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: sharedHeaders).validate().responseJSON { (response) in
                 completion(response)
         }
     }
