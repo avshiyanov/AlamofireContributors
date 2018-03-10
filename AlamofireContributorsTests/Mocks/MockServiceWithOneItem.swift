@@ -10,7 +10,7 @@ import XCTest
 @testable import AlamofireContributors
 
 class MockServiceWithOneItem: AlamofireContributorsAPI {
-    func fetchContributors(completion: @escaping ((Result<[Contributor]>) -> Void)) {
+    func fetchContributors(page: Int, completion: @escaping ((Result<[Contributor]>) -> Void)) {
         let payload: [String: Any] = [
             "id": 169110,
             "login": "cnoon",

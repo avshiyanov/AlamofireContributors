@@ -11,6 +11,7 @@ import UIKit
 class ContributorsListController: UITableViewController {
     // MARK: Properties
     private var spinner: UIActivityIndicatorView!
+    private var refreshView: UIRefreshControl!
     var currentPage: Int = 1
     var requestIsExecuted = false
     var networkService: AlamofireContributorsAPI = {
@@ -45,6 +46,9 @@ class ContributorsListController: UITableViewController {
         spinner.hidesWhenStopped = true
         tableView.backgroundView = spinner
         tableView.tableFooterView = UIView()
+        refreshView = UIRefreshControl()
+        refreshView.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        refreshControl = refreshView
     }
     
     func requestData() {
@@ -53,6 +57,7 @@ class ContributorsListController: UITableViewController {
         networkService.fetchContributors(page: currentPage) {  [weak self] (result) in
             guard let `self` = self else { return }
             self.spinner.stopAnimating()
+            self.refreshView.endRefreshing()
             self.requestIsExecuted = false
             switch (result) {
             case .success(let contributors):
@@ -72,10 +77,10 @@ class ContributorsListController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    func refreshData() {
+    @objc func refresh() {
         currentPage = 1
         contributors = []
-        refreshData()
+        requestData()
     }
     
     func loadMore() {

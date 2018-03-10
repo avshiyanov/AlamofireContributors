@@ -10,7 +10,7 @@ import XCTest
 @testable import AlamofireContributors
 
 class MockServiceWithNoItems: AlamofireContributorsAPI {
-    func fetchContributors(completion: @escaping ((Result<[Contributor]>) -> Void)) {
+    func fetchContributors(page: Int, completion: @escaping ((Result<[Contributor]>) -> Void)) {
         completion(Result.success([]))
     }
     

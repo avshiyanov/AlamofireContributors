@@ -12,7 +12,7 @@ import XCTest
 @testable import AlamofireContributors
 
 class MockServiceWithNoDataError: AlamofireContributorsAPI {
-    func fetchContributors(completion: @escaping ((Result<[Contributor]>) -> Void)) {
+    func fetchContributors(page: Int, completion: @escaping ((Result<[Contributor]>) -> Void)) {
         completion(Result.failure(ResponseError.empty))
     }
     

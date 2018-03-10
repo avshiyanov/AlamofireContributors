@@ -10,7 +10,7 @@ import XCTest
 @testable import AlamofireContributors
 
 class MockServiceWithError: AlamofireContributorsAPI {
-    func fetchContributors(completion: @escaping ((Result<[Contributor]>) -> Void)) {
+    func fetchContributors(page: Int, completion: @escaping ((Result<[Contributor]>) -> Void)) {
         completion(Result.failure(ResponseError.parse))
     }
     

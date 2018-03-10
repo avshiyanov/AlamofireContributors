@@ -21,7 +21,7 @@ public struct NetworkRequest: NetworkProtocol {
     
     private enum Constants {
         static let baseURL = "https://api.github.com"
-        static let token = "aee0611d02b88f552de3f8294a5a7fc3f5791c3f"
+        static let token = "8a7a872d62d6400904bd8d3defd40f1411af94cb"
     }
     
     public var sharedHeaders: HTTPHeaders {
@@ -36,7 +36,7 @@ public struct NetworkRequest: NetworkProtocol {
     
     public func makeRequest(completion: @escaping ((Alamofire.DataResponse<Any>) -> Void)) {
     
-        Alamofire.request(Constants.baseURL + path, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: sharedHeaders).validate().responseJSON { (response) in
+        Alamofire.request(Constants.baseURL + path, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: self.sharedHeaders).validate().responseJSON { (response) in
                 completion(response)
         }
     }

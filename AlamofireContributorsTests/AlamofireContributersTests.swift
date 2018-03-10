@@ -84,7 +84,7 @@ class AlamofireContributersTests: XCTestCase {
     
     func testOneItemState() {
         contributorsListController.networkService = MockServiceWithOneItem()
-        contributorsListController.networkService.fetchContributors { (result) in
+        contributorsListController.networkService.fetchContributors(page: 1) { (result) in
             switch (result) {
             case .success(let contributors):
                 XCTAssertEqual(contributors.count, 1)
@@ -96,7 +96,7 @@ class AlamofireContributersTests: XCTestCase {
     
     func testNoItemsState() {
         contributorsListController.networkService = MockServiceWithNoItems()
-        contributorsListController.networkService.fetchContributors { (result) in
+        contributorsListController.networkService.fetchContributors(page: 1) { (result) in
             switch (result) {
             case .success(let contributors):
                 XCTAssertEqual(contributors.count, 0)
@@ -108,7 +108,7 @@ class AlamofireContributersTests: XCTestCase {
     
     func testNoDataErrorState() {
         contributorsListController.networkService = MockServiceWithNoDataError()
-        contributorsListController.networkService.fetchContributors { (result) in
+        contributorsListController.networkService.fetchContributors(page: 1) { (result) in
             switch (result) {
             case .failure(let error):
                 XCTAssert(error is ResponseError)
@@ -121,7 +121,7 @@ class AlamofireContributersTests: XCTestCase {
     
     func testErrorState() {
         contributorsListController.networkService = MockServiceWithError()
-        contributorsListController.networkService.fetchContributors { (result) in
+        contributorsListController.networkService.fetchContributors(page: 1) { (result) in
             switch (result) {
             case .failure(let error):
                 XCTAssert(error is ResponseError)
